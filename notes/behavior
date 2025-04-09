@@ -2,7 +2,7 @@
 1000:0001 - PUSH SS		- Puts the "stack pointer" on the stack
 1000:0002 - POP DS		- Sets the "data section pointer" to the "stack pointer" and pop it off the stack
 				- SS and DS are now pointing to the same thing
-1000:0003 - MOV AX,ES:[0x2]	- Sets ax to ES:0x2 - This is weird because ES doesn't start initialized in dos exes. Coms do but not exes
-				- Presumably, DAGGER.EXE is setting this. IDK though.
+1000:0003 - MOV AX,ES:[0x2]	- Sets AX to the PSP:0x2, this is the segment address, idk look at wikipedia
+				- ES and DS are set to PSP when the program starts executing. 
 1000:0007 - SUB AX,0x40		- Sets AX to AX - 0x40. Sets AX to (ES:0002) - 0x40
 
